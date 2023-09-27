@@ -62,8 +62,6 @@ public class Analizer {
         String currentText = "";
         String text = "";
 
-        printer.print("символ = " + chr);
-
         for (int i = 0; i < 10_000; i++) {
             try {
                 text = arrayBlockingQueue.take();

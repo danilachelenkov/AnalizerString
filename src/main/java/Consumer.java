@@ -9,11 +9,7 @@ public class Consumer implements Runnable {
 
     @Override
     public void run() {
-        System.out.println("Старт расчета Consumer =" + Thread.currentThread().getName());
-
         Analizer analizer = new Analizer(printer);
         analizer.analize(chr);
-
-        System.out.println("Конец расчета Consumer =" + Thread.currentThread().getName());
     }
 }

@@ -13,10 +13,9 @@ public class Application {
 
         List<Thread> listThread = new ArrayList<>();
 
-        System.out.println("Заполняю очередь");
-
         Thread threadProducer = new Thread(new Producer());
         threadProducer.setName("threadProducer");
+        threadProducer.start();
 
         Thread threadConsumerA = new Thread(new Consumer('a', printer));
         Thread threadConsumerB = new Thread(new Consumer('b', printer));
@@ -30,17 +29,10 @@ public class Application {
         listThread.add(new Thread(threadConsumerA));
         listThread.add(new Thread(threadConsumerB));
         listThread.add(new Thread(threadConsumerC));
-        listThread.add(threadProducer);
-
-        System.out.println(Analizer.blockingQueueA);
 
         for (Thread thread : listThread) {
             System.out.println("Запускаю задание " + thread.getName() + " " + thread.threadId());
             thread.start();
-
-            if (thread.getName().equals("threadProducer")) {
-                thread.join();
-            }
         }
 
         printer.print("\nРасчет завершен");

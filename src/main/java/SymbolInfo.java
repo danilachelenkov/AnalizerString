@@ -4,7 +4,7 @@ public class SymbolInfo {
 
     private final char symbol;
 
-    public SymbolInfo(String text, int count,char chr) {
+    public SymbolInfo(String text, int count, char chr) {
         this.text = text;
         this.count = count;
         this.symbol = chr;
